@@ -104,7 +104,7 @@ export function Spawn() {
       return
     }
     if (onWrongChain) {
-      setStatus('Switch to BOT Chain testnet (968).')
+      setStatus('Switch to BOT Chain to continue.')
       return
     }
 
@@ -132,11 +132,10 @@ export function Spawn() {
     <div className="mx-auto grid max-w-5xl gap-6 lg:grid-cols-[1fr_0.9fr]">
       <div className="space-y-4 animate-fade-up">
         <div>
-          <p className="page-kicker mb-2">Sys · Create</p>
+          <p className="page-kicker mb-2">Create</p>
           <h1 className="page-title text-4xl sm:text-5xl lg:text-6xl">Spawn a coin</h1>
           <p className="mt-3 max-w-md text-base text-spawn-muted sm:text-lg">
-            Broadcasts to SpawnFactory on BOT testnet. Fixed 1B supply · anti-snipe · SPAWN buyback
-            fees.
+            Fixed 1B supply. Early buys are limited for a few blocks. Creators earn from every trade.
           </p>
         </div>
 
@@ -225,9 +224,9 @@ export function Spawn() {
               <Sparkles className="h-4 w-4" />
             </span>
             <span className="flex-1">
-              <span className="block text-base font-semibold">Agent Spawn</span>
+              <span className="block text-base font-semibold">Agent launch</span>
               <span className="block text-sm text-spawn-muted">
-                Tags the description for Agent Wallet fee streaming
+                Marks this coin as launched for an agent
               </span>
             </span>
             <span className={`h-5 w-9 rounded-full p-0.5 transition ${agentMode ? 'bg-cyan-400' : 'bg-spawn-border'}`}>
@@ -246,7 +245,7 @@ export function Spawn() {
               disabled={switching}
               onClick={() => switchChain({ chainId: botTestnet.id })}
             >
-              {switching ? 'Switching…' : 'Switch to BOT testnet'}
+              {switching ? 'Switching…' : 'Switch to BOT Chain'}
             </button>
           ) : (
             <button
@@ -255,7 +254,7 @@ export function Spawn() {
               disabled={isPending || confirming || !canSubmit}
             >
               <Rocket className="h-4 w-4" />
-              {isPending || confirming ? 'Confirm in wallet…' : 'Spawn on BOT testnet'}
+              {isPending || confirming ? 'Confirm in wallet…' : 'Launch token'}
             </button>
           )}
 
@@ -301,8 +300,8 @@ export function Spawn() {
             <div className="flex flex-wrap gap-2">
               <span className="chip">1B supply</span>
               <span className="chip">1.25% fee</span>
-              <span className="chip">SPAWN buyback</span>
-              <span className="chip-live">chain 968</span>
+              <span className="chip">Creator earns</span>
+              <span className="chip-live">Testnet</span>
               {agentMode && <span className="chip border-cyan-500/40 text-cyan-300">Agent</span>}
             </div>
           </div>

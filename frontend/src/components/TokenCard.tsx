@@ -24,7 +24,7 @@ export function TokenCard({ launch }: Props) {
           )}
           {launch.graduated && (
             <span className="absolute -bottom-1 -right-1 rounded bg-emerald-500 px-1.5 py-0.5 font-mono text-[10px] font-bold text-black">
-              AMM
+              LIVE
             </span>
           )}
         </div>
@@ -45,7 +45,7 @@ export function TokenCard({ launch }: Props) {
       <div className="mt-5 space-y-2.5">
         <div className="flex items-center justify-between text-sm">
           <span className={launch.graduated ? 'font-medium text-emerald-400' : 'text-zinc-400'}>
-            {launch.graduated ? 'Graduated · AMM' : `${progress.toFixed(0)}% bonded`}
+            {launch.graduated ? 'Graduated' : `${progress.toFixed(0)}% to graduate`}
           </span>
           <span className="font-mono text-base text-zinc-200">{formatBot(launch.raisedBot)} BOT</span>
         </div>

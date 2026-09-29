@@ -55,7 +55,7 @@ export function formatUserError(err: unknown, fallback = 'Something went wrong. 
     m.includes('outoffunds') ||
     m.includes('out of funds')
   ) {
-    return 'Not enough BOT for this transaction (amount + gas).'
+    return 'Not enough BOT for this trade (including network fee).'
   }
 
   // Spawn / factory domain errors
@@ -69,10 +69,10 @@ export function formatUserError(err: unknown, fallback = 'Something went wrong. 
   // Trade / curve
   if (m.includes('slippage')) return 'Price moved too much. Try a smaller size or try again.'
   if (m.includes('maxbuy') || m.includes('antisnipe') || m.includes('anti-snipe')) {
-    return 'Anti-snipe limit active. Wait a few blocks or reduce size.'
+    return 'Early buy limit — wait a moment or buy a smaller amount.'
   }
   if (m.includes('graduatedalready') || m.includes('curve closed')) {
-    return 'This market has graduated. Trading continues on the AMM.'
+    return 'This market has graduated. Trading is still open here.'
   }
   if (m.includes('allowance') || m.includes('transfer amount exceeds')) {
     return 'Token approval needed — approve and try again.'
@@ -111,7 +111,7 @@ export function formatUserError(err: unknown, fallback = 'Something went wrong. 
     m.includes('call_exception')
   ) {
     const short = shortRevertReason(raw)
-    return short || 'Transaction failed on-chain. Check inputs and try again.'
+    return short || 'Transaction failed. Check your inputs and try again.'
   }
 
   // Strip hex / verbose viem wrappers if somehow still long

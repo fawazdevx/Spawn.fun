@@ -40,13 +40,13 @@ export function Feed() {
   return (
     <div className="space-y-8">
       <div className="sys-bar mb-2">
-        <span className="text-cyan-400">Sys · Spawn runtime</span>
+        <span className="text-cyan-400">Spawn.fun</span>
         <span className="text-zinc-600">/</span>
         <span>Markets feed</span>
-        <span className="hidden text-zinc-500 sm:inline">$SPAWN buyback 80%</span>
+        <span className="hidden text-zinc-500 sm:inline">Creators earn from every trade</span>
         <span className="ml-auto inline-flex items-center gap-1.5 text-emerald-400">
           <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-400" />
-          All systems nominal
+          Live
         </span>
       </div>
 
@@ -55,7 +55,7 @@ export function Feed() {
           <p className="page-kicker mb-2">Live markets</p>
           <h1 className="page-title text-4xl sm:text-5xl lg:text-6xl">Markets</h1>
           <p className="mt-3 max-w-xl text-base text-zinc-400 sm:text-lg">
-            Fair launches on BOT Chain testnet. Spawn it. Trade it.
+            Fair launches on BOT Chain. Spawn it. Trade it.
           </p>
         </div>
         <Link to="/spawn" className="btn-primary text-base">
@@ -117,7 +117,7 @@ export function Feed() {
       ) : filtered.length === 0 ? (
         <div className="flex flex-col items-center gap-4 rounded-2xl border border-white/[0.08] bg-[#0b0b10] px-6 py-20 text-center">
           <p className="text-xl font-semibold">No launches yet</p>
-          <p className="text-base text-zinc-500">Be the first to launch on this factory.</p>
+          <p className="text-base text-zinc-500">Be the first to launch here.</p>
           <Link to="/spawn" className="btn-primary mt-1">
             Launch token
           </Link>

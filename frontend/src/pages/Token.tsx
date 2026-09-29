@@ -191,7 +191,7 @@ export function Token() {
       return
     }
     if (onWrongChain) {
-      setMsg('Switch to BOT Chain testnet (968).')
+      setMsg('Switch to BOT Chain to continue.')
       return
     }
     if (parsedAmount == null || parsedAmount <= 0n) {
@@ -270,9 +270,9 @@ export function Token() {
           Markets
         </Link>
         <div className="flex items-center gap-2 text-sm">
-          <span className="chip">BOT testnet</span>
+          <span className="chip">Testnet</span>
           {isGraduated ? (
-            <span className="chip-live">Graduated · AMM live</span>
+            <span className="chip-live">Graduated</span>
           ) : (
             <span className="chip">{progress.toFixed(0)}% to graduate</span>
           )}
@@ -301,7 +301,7 @@ export function Token() {
 
         <div className="flex flex-wrap gap-7 sm:gap-10">
           <Metric
-            label="Mcap"
+            label="Market cap"
             value={`${formatBot(spot?.mcap ?? lastTrade?.mcap ?? 0)} BOT`}
             sub={
               changePct !== 0 ? (
@@ -317,7 +317,7 @@ export function Token() {
           <Metric label="Raised" value={`${formatBot(launch.raisedBot)} BOT`} />
           <Metric label="Trades" value={String(trades.length)} />
           <Metric
-            label="CA"
+            label="Token"
             value={
               <button
                 type="button"
@@ -373,9 +373,9 @@ export function Token() {
 
             {isGraduated && (
               <div className="mb-4 space-y-2 rounded-xl border border-emerald-500/25 bg-emerald-500/10 px-4 py-3 text-sm text-emerald-100">
-                <div className="font-semibold text-emerald-300">Graduated · Trade on Spawn AMM</div>
+                <div className="font-semibold text-emerald-300">Graduated — trading is live</div>
                 <p className="leading-relaxed text-emerald-100/85">
-                  Bonding phase complete. Liquidity stays locked — buy/sell continues here.
+                  Launch goal reached. Buy and sell keep working right here.
                 </p>
                 <a
                   href={bdexSwapUrl(launch.token)}
@@ -383,13 +383,13 @@ export function Token() {
                   rel="noreferrer"
                   className="inline-flex items-center gap-1.5 font-medium text-emerald-200 underline-offset-2 hover:underline"
                 >
-                  Also open on BDEX <ExternalLink className="h-4 w-4" />
+                  Also trade on Swap <ExternalLink className="h-4 w-4" />
                 </a>
               </div>
             )}
 
             <div className="mb-3 text-xs font-semibold uppercase tracking-[0.16em] text-zinc-500">
-              {isGraduated ? 'Trade on AMM' : 'Trade on bonding curve'}
+              Trade
             </div>
 
             <label className="block space-y-2.5">
@@ -449,7 +449,7 @@ export function Token() {
                   disabled={switching}
                   onClick={() => switchChain({ chainId: botTestnet.id })}
                 >
-                  {switching ? 'Switching…' : 'Switch to BOT testnet'}
+                  {switching ? 'Switching…' : 'Switch to BOT Chain'}
                 </button>
               ) : (
                 <button
@@ -491,11 +491,11 @@ export function Token() {
 
           <div className="rounded-2xl border border-white/[0.08] bg-[#0b0b10] p-5 text-sm text-zinc-500">
             <div className="mb-3 text-xs font-semibold uppercase tracking-[0.16em] text-zinc-500">
-              Contract
+              Details
             </div>
             <div className="space-y-3">
               <AddrRow label="Token" addr={launch.token} />
-              <AddrRow label="Curve" addr={launch.curve} />
+              <AddrRow label="Market" addr={launch.curve} />
               <AddrRow label="Creator" addr={launch.creator} />
             </div>
           </div>

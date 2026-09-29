@@ -169,16 +169,6 @@ UI direction: mission-control (dark base, cyan accents, monospace labels) — bu
 
 ---
 
-## For builders
-
-```bash
-forge test
-cd frontend && npm install && npm run dev
-```
-
-Frontend deploy (Vercel, env vars, image upload): [frontend/README.md](frontend/README.md).
-
----
 
 ## Roadmap
 

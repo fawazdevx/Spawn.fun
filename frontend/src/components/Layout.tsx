@@ -1,8 +1,7 @@
 import { ConnectButton } from '@rainbow-me/rainbowkit'
 import { Link, NavLink, Outlet } from 'react-router-dom'
 import { Sparkles, Rocket, LayoutDashboard, ExternalLink } from 'lucide-react'
-import { FACTORY_ADDRESS, isAppConfigured, shortAddr, explorerAddress } from '../lib/config'
-import { botTestnet } from '../lib/chains'
+import { isAppConfigured } from '../lib/config'
 
 const nav = [
   { to: '/', label: 'Markets', icon: Sparkles },
@@ -43,17 +42,6 @@ export function Layout() {
           </div>
 
           <div className="flex items-center gap-3">
-            {isAppConfigured && (
-              <a
-                href={explorerAddress(FACTORY_ADDRESS, botTestnet.id)}
-                target="_blank"
-                rel="noreferrer"
-                className="hidden font-mono text-xs uppercase tracking-wider text-zinc-500 transition hover:text-cyan-300 lg:inline"
-                title="Factory on explorer"
-              >
-                factory {shortAddr(FACTORY_ADDRESS)}
-              </a>
-            )}
             <span className="chip-live">
               <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
               Testnet
@@ -82,7 +70,7 @@ export function Layout() {
           <div className="mx-auto max-w-lg rounded-2xl border border-amber-500/25 bg-amber-500/10 px-6 py-12 text-center">
             <p className="font-display text-2xl font-semibold text-amber-100">Coming online</p>
             <p className="mt-3 text-base leading-relaxed text-amber-100/80">
-              Spawn.fun is not connected to a factory on this deployment yet. Check back shortly.
+              Spawn.fun is warming up. Check back shortly.
             </p>
           </div>
         ) : (
@@ -103,8 +91,8 @@ export function Layout() {
                 </span>
               </Link>
               <p className="mt-4 max-w-xs text-sm leading-relaxed text-zinc-500">
-                Fair-launch memecoins on BOT Chain. Bonding curves, locked AMM, and protocol fees that
-                buy back and burn $SPAWN.
+                Fair-launch coins on BOT Chain. Creators earn from trading. Platform fees buy and burn
+                $SPAWN.
               </p>
             </div>
 
@@ -154,18 +142,18 @@ export function Layout() {
                     rel="noreferrer"
                     className="inline-flex items-center gap-1.5 transition hover:text-white"
                   >
-                    BDEX
+                    Swap
                     <ExternalLink className="h-3.5 w-3.5 opacity-60" />
                   </a>
                 </li>
                 <li>
                   <a
-                    href="https://rpc.bohr.life"
+                    href="https://botchain.ai"
                     target="_blank"
                     rel="noreferrer"
                     className="inline-flex items-center gap-1.5 transition hover:text-white"
                   >
-                    RPC
+                    BOT Chain
                     <ExternalLink className="h-3.5 w-3.5 opacity-60" />
                   </a>
                 </li>
@@ -174,32 +162,19 @@ export function Layout() {
 
             <div>
               <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.16em] text-zinc-500">
-                Protocol
+                Fees
               </p>
               <ul className="mt-4 space-y-2.5 text-sm text-zinc-400">
-                <li>1.25% trade fee</li>
-                <li>50% to creators</li>
-                <li>80% protocol → $SPAWN burn</li>
-                {isAppConfigured && (
-                  <li>
-                    <a
-                      href={explorerAddress(FACTORY_ADDRESS, botTestnet.id)}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="inline-flex items-center gap-1.5 font-mono text-xs transition hover:text-cyan-300"
-                    >
-                      Factory {shortAddr(FACTORY_ADDRESS)}
-                      <ExternalLink className="h-3 w-3 opacity-60" />
-                    </a>
-                  </li>
-                )}
+                <li>1.25% per trade</li>
+                <li>Half goes to creators</li>
+                <li>Most of the rest buys &amp; burns $SPAWN</li>
               </ul>
             </div>
           </div>
 
           <div className="mt-10 flex flex-col items-start justify-between gap-3 border-t border-white/[0.06] pt-6 text-xs text-zinc-600 sm:flex-row sm:items-center">
             <p>© {year} Spawn.fun. Built on BOT Chain.</p>
-            <p className="font-mono uppercase tracking-[0.12em]">Chain ID 968 · Testnet</p>
+            <p>Testnet</p>
           </div>
         </div>
       </footer>

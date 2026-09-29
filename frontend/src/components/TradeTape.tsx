@@ -14,9 +14,9 @@ export function TradeTape({ trades, symbol }: Props) {
     <div className="overflow-hidden rounded-xl border border-cyan-500/15 bg-[#08080c]">
       <div className="flex items-center justify-between border-b border-white/[0.07] px-4 py-3.5 sm:px-5">
         <div className="font-mono text-[11px] font-semibold uppercase tracking-[0.2em] text-cyan-400/90">
-          Sys · Trades
+          Recent trades
         </div>
-        <div className="font-mono text-sm text-zinc-500">{rows.length} recent</div>
+        <div className="font-mono text-sm text-zinc-500">{rows.length} latest</div>
       </div>
 
       {rows.length === 0 ? (
@@ -29,7 +29,7 @@ export function TradeTape({ trades, symbol }: Props) {
                 <th className="px-4 py-3 font-semibold sm:px-5">Side</th>
                 <th className="px-2 py-3 font-semibold">BOT</th>
                 <th className="px-2 py-3 font-semibold">{symbol}</th>
-                <th className="px-2 py-3 font-semibold">Mcap</th>
+                <th className="px-2 py-3 font-semibold">Market cap</th>
                 <th className="px-4 py-3 font-semibold text-right sm:px-5">Who</th>
               </tr>
             </thead>

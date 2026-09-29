@@ -35,7 +35,7 @@ export function Dashboard() {
     setMsg(null)
     reset()
     if (onWrongChain) {
-      setMsg('Switch to BOT testnet first.')
+      setMsg('Switch to BOT Chain first.')
       return
     }
     setClaimingCurve(curve)
@@ -51,10 +51,10 @@ export function Dashboard() {
     <div className="space-y-8 animate-fade-up">
       <div className="flex flex-wrap items-end justify-between gap-4">
         <div>
-          <p className="page-kicker mb-2">Sys · Studio</p>
+          <p className="page-kicker mb-2">Studio</p>
           <h1 className="page-title text-4xl sm:text-5xl lg:text-6xl">Your launches</h1>
           <p className="mt-3 max-w-lg text-base text-spawn-muted sm:text-lg">
-            On-chain launches for this wallet. Claim accrued creator fees from each curve.
+            Coins you launched. Claim creator fees anytime.
           </p>
         </div>
         <div className="flex items-center gap-3">
@@ -66,11 +66,11 @@ export function Dashboard() {
               disabled={switching}
               onClick={() => switchChain({ chainId: botTestnet.id })}
             >
-              Switch to testnet
+              Switch network
             </button>
           )}
           <Link to="/spawn" className="btn-primary">
-            New spawn
+            New launch
           </Link>
         </div>
       </div>
@@ -83,9 +83,9 @@ export function Dashboard() {
 
       {!isConnected ? (
         <div className="card flex flex-col items-center gap-4 px-6 py-16 text-center">
-          <p className="text-spawn-muted">Connect a wallet to see your on-chain launches.</p>
+          <p className="text-spawn-muted">Connect a wallet to see your launches.</p>
           <ConnectButton />
-          <p className="text-xs text-spawn-faint">{all.length} total launches on factory</p>
+          <p className="text-xs text-spawn-faint">{all.length} launches on Spawn.fun</p>
         </div>
       ) : (
         <section className="card overflow-hidden">
@@ -103,7 +103,7 @@ export function Dashboard() {
               </div>
               <div>
                 <p className="font-display text-lg font-semibold">No launches for this wallet</p>
-                <p className="mt-1 text-sm text-spawn-muted">Spawn your first coin on BOT testnet.</p>
+                <p className="mt-1 text-sm text-spawn-muted">Launch your first coin on Spawn.fun.</p>
               </div>
               <Link to="/spawn" className="btn-primary">
                 Spawn a coin

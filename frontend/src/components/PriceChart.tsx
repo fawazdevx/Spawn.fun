@@ -483,15 +483,15 @@ export function PriceChart({ trades, spotMcap, height = 420, defaultInterval = '
       <div className="flex flex-wrap items-center justify-between gap-3 border-b border-white/[0.07] px-4 py-2.5 sm:px-5">
         <div className="flex items-center gap-3">
           <span className="font-mono text-[11px] font-semibold uppercase tracking-[0.2em] text-cyan-400/90">
-            Mcap · BOT
+            Market cap
           </span>
           <span className="hidden items-center gap-1.5 font-mono text-[11px] text-emerald-400/90 sm:inline-flex">
             <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-400" />
-            LIVE
+            Live
           </span>
           {useArea && (
             <span className="font-mono text-[10px] uppercase tracking-wider text-zinc-600">
-              line · few fills
+              Early chart
             </span>
           )}
         </div>
@@ -527,7 +527,7 @@ export function PriceChart({ trades, spotMcap, height = 420, defaultInterval = '
         {empty && (
           <div className="pointer-events-none absolute inset-0 z-10 flex items-center justify-center bg-[#08080c]/95">
             <div className="text-center">
-              <p className="font-mono text-xs uppercase tracking-[0.18em] text-zinc-600">Awaiting fills</p>
+              <p className="font-mono text-xs uppercase tracking-[0.18em] text-zinc-600">No trades yet</p>
               <p className="mt-2 text-sm text-zinc-400">Chart appears after the first buy</p>
             </div>
           </div>
